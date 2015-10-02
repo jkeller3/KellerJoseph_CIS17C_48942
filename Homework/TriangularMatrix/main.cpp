@@ -13,6 +13,7 @@ using namespace std;
 
 //User Libraries
 #include "arrays.h"
+#include "arrays.cpp"
 
 //Global Constants
 
@@ -23,7 +24,7 @@ using namespace std;
 int main(){
     //Initialize the random number generator
     srand(static_cast<unsigned int>(time(0)));
-    Arrays<int>a(10);
+    Arrays<int> a(10);
     a.filD1ary();
     a.filD2ary();
     a.prntD1ary();

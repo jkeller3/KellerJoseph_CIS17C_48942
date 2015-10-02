@@ -8,7 +8,7 @@ class Arrays{
         T *d1ary;
         T **d2ary;
     public:
-        Arrays(int);
+        Arrays(T);
         ~Arrays();
         void filD1ary();
         void filD2ary();
