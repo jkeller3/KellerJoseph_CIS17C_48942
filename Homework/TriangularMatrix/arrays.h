@@ -4,8 +4,8 @@
 template <class T>
 class Arrays{
     private:
-        T cols;
-        T *d1ary;
+        int cols;
+        int *d1ary;
         T **d2ary;
     public:
         Arrays(T);

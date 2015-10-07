@@ -24,10 +24,12 @@ using namespace std;
 int main(){
     //Initialize the random number generator
     srand(static_cast<unsigned int>(time(0)));
-    Arrays<int> a(10);
-    a.filD1ary();
-    a.filD2ary();
-    a.prntD1ary();
-    a.prntD2ary();
+    cout<<"How big would you like the float matrix to be?\n";
+    int num;
+    cin>>num;
+    Arrays<float> a(num);
+    cout<<"How big would you like the int matrix to be?\n";
+    cin>>num;
+    Arrays<int> b(num);
     return 0;
 }

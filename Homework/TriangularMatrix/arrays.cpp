@@ -1,11 +1,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
+#include <iomanip>
 #include "arrays.h"
 
 template <class T>
 Arrays<T>::Arrays(T col){
     cols = col;
+    this->filD1ary();
 }
 
 template <class T>
@@ -21,11 +23,12 @@ Arrays<T>::~Arrays(void){
 //Columns per row
 template <class T>
 void Arrays<T>::filD1ary(void){
-    d1ary=new T[cols];
+    d1ary=new int[cols];
     for(int i=0;i<cols;i++){
         //array[i]=rand()%10+1;
         d1ary[i]=i+1;
     }
+    this->filD2ary();
 }
 
 //Fills a 1-Dim array with the number of
@@ -40,9 +43,12 @@ void Arrays<T>::filD2ary(void){
     //Fill the allocated memory
     for(int row=0;row<cols;row++){
         for(int col=0;col<d1ary[row];col++){
-            d2ary[row][col]=(float)(rand()%(9900-1000)) / 100.0;
+            int k = rand()%9000+1000;
+            std::cout<<std::fixed<<std::showpoint<<std::setprecision(2);
+            d2ary[row][col]=static_cast<float>(k/100.0)+0.5;
         }
     }
+    this->prntD1ary();
 }
 
 template <class T>
@@ -52,6 +58,7 @@ void Arrays<T>::prntD1ary(void){
         std::cout<<d1ary[i]<<" ";
     }
     std::cout<<std::endl;
+    this->prntD2ary();
 }
 
 template <class T>
