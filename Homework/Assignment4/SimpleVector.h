@@ -7,8 +7,9 @@
 
 #ifndef SIMPLEVECTOR_H
 #define	SIMPLEVECTOR_H
+#include "node.h"
 
-class SimpleVector {
+class SimpleVector:public Node{
 public:
     SimpleVector();
     SimpleVector(const SimpleVector& orig);
