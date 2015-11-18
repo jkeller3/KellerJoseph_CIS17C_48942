@@ -18,9 +18,8 @@ SimpleVector::~SimpleVector() {
 
 void SimpleVector::pushNode(int n){
     Node* push = new Node;
-    tail->next=push;
-    push->next=0;
     push->x=n;
+    push->next=0;
 }
 
 void SimpleVector::pullNode(){
