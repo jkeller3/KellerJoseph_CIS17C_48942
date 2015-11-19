@@ -9,11 +9,11 @@
 #define	NODE_H
 
 class Node{
-    private:
         int x;
         Node *next;
     public:
         Node(){};
+        ~Node(){};
         void setX(int a){x=a;};
         void setNext(Node* aNext){next=aNext;};
         int getX(){return x;};

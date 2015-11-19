@@ -9,15 +9,14 @@
 #define	SIMPLEVECTOR_H
 #include "node.h"
 
-class SimpleVector:public Node{
+class SimpleVector{
+    Node *head;
 public:
-    SimpleVector();
-    SimpleVector(const SimpleVector& orig);
-    virtual ~SimpleVector();
+    SimpleVector() {head=NULL;};
+    ~SimpleVector(){};
+    void Print();
     void pushNode(int);
     void pullNode();
-private:
-    
 };
 
 #endif	/* SIMPLEVECTOR_H */

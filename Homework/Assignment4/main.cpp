@@ -7,47 +7,71 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "SimpleVector.h"
-#include "Node.h"
 using namespace std;
 
-int main(int argc, char** argv) {
-    Node* head = new Node;
-    head->next=0;
-    head->x=5;
-    
-    Node* tail = new Node;
-    head->next=tail;
-    tail->next=0;
-    tail->x=6;
-    
-    Node* mid = new Node;
-    head->next=mid;
-    mid->next=tail;
-    mid->x=2;
-    
-    cout<<"Head "<<head->x<<" ";
-    cout<<head->next->x<<" ";
-    cout<<head->next->next->x<<" Tail.\n";
-    
-    int num;
-    do{
-    cout<<"Type 1 to push, 2 to pull:\n";
-    cin>>num;
-    }while(num>2||num<1);
-    
-    SimpleVector v;
-    if(num==1){
-        cout<<"What number would you like to add?\n";
-        int pushNum;
-        cin>>pushNum;
-        v.pushNode(pushNum);
-    }
-    
-    if(num==2){
-        v.pullNode();
-    }
+#include "SimpleVector.h"
+#include "Node.h"
 
+void array();
+void linkedlist();
+void output(int, int*);
+
+int main(int argc, char** argv) {
+    array();
+    linkedlist();
     return 0;
 }
 
+void array(){
+    int* array = new int[10];
+    array[0]=3;
+    array[1]=5;
+    array[2]=10;
+    int size=3;
+    cout<<"Array implementation: \n";
+    output(size,array);
+    cout<<"Enter 1 to push. 2 to pull. 0 to exit.\n";
+    int input;
+    do{
+        cin>>input;
+        if(input==1){
+            array[size]=5;
+            size++;
+            output(size,array);
+        }
+        if(input==2){
+            array[size-1]=0;
+            size--;
+            output(size,array);
+        }
+    }while(input!=0);
+}
+
+void linkedlist(){
+    SimpleVector list;
+    list.pushNode(3);
+    list.pushNode(5);
+    list.pushNode(10);
+    cout<<"Linked List implementation: \n";
+    list.Print();
+    cout<<"Enter 1 to push. 2 to pull. 0 to exit.\n";
+    int input;
+    do{
+        cin>>input;
+        if(input==1){
+            list.pushNode(5);
+            list.Print();
+        }
+        if(input==2){
+            list.pullNode();
+            list.Print();
+        }
+    }while(input!=0);
+}
+
+void output(int size, int*array){
+    for(int i=0; i<size; i++){
+        cout<<array[i]<<" --> ";
+    }
+    cout<<"NULL\n";
+}
