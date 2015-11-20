@@ -13,6 +13,7 @@ class SimpleVector{
     Node *head;
 public:
     SimpleVector() {head=NULL;};
+    SimpleVector(const SimpleVector&);
     ~SimpleVector(){};
     void Print();
     void prepend(int);
