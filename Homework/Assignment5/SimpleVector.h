@@ -16,11 +16,12 @@ public:
     SimpleVector(const SimpleVector&);
     ~SimpleVector(){};
     void Print();
-    void prepend(int);
-    void append(int);
-    void pullNode();
-    void first();
-    void last();
+    void Prepend(int);
+    void Append(int);
+    void PullNode();
+    void First();
+    void Last();
+    void Extract(int);
 };
 
 #endif	/* SIMPLEVECTOR_H */

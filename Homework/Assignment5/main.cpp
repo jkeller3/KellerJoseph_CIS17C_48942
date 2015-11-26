@@ -49,9 +49,9 @@ void array(){
 
 void linkedlist(){
     SimpleVector list;
-    list.append(3);
-    list.append(5);
-    list.append(10);
+    list.Append(3);
+    list.Append(5);
+    list.Append(10);
     cout<<"Linked List implementation: \n";
     list.Print();
     int input;
@@ -61,25 +61,38 @@ void linkedlist(){
         cout<<"Enter 3 to pull.\n";
         cout<<"Enter 4 for first.\n";
         cout<<"Enter 5 for last.\n";
+        cout<<"Enter 6 for copy.\n";
+        cout<<"Enter 7 for extract.\n";
         cout<<"Enter 0 to exit.\n";
         cin>>input;
         if(input==1){
-            list.prepend(6);
+            list.Prepend(6);
             list.Print();
         }
         if(input==2){
-            list.append(5);
+            list.Append(5);
             list.Print();
         }
         if(input==3){
-            list.pullNode();
+            list.PullNode();
             list.Print();
         }
         if(input==4){
-            list.first();
+            list.First();
         }
         if(input==5){
-            list.last();
+            list.Last();
+        }
+        if(input==6){
+            SimpleVector copy(list);
+            copy.Print();
+        }
+        if(input==7){
+            cout<<"What number would you like to extract?\n";
+            int n;
+            cin>>n;
+            list.Extract(n);
+            list.Print();
         }
     }while(input!=0);
 }
