@@ -84,18 +84,71 @@ void SimpleVector::Last(){
 }
 
 void SimpleVector::Extract(int n){
-    Node *temp = head;
-    if(temp==NULL){ //returns if list is empty
+    if(!head){
         return;
     }
-    else{
-        do{
-            if(temp->getX()==n){ //if that spot is equal to the number
-                temp->setNext(temp->getNext()); //removes it and sets
-            }                           //to the next spot in the list
+    Node* temp = head;
+    Node* prev = 0;
+ 
+    while (temp!=NULL){
+        if (temp->getX()==n){
+            if (prev != NULL){
+                prev->setNext(temp->getNext());
+                temp = temp->getNext();
+                // Keep prev as is
+            }
             else{
-                temp=temp->getNext(); //if the spot isn't the number, 
-            }                         //moves to check next spot.
-        }while(temp!=NULL);
+                // prev is null
+                Node * next = temp->getNext();
+                temp->setNext(NULL);
+                temp = next;
+                head = next;
+            }
+        } 
+        else{
+            // not n
+            prev = temp;
+            temp = temp->getNext();
+        }
     }
+}
+
+void SimpleVector::Traverse(){
+    if(!head){
+        std::cout<<"The list is empty.\n";
+    }
+    Node *temp = head;
+    bool insert = false;
+    int counter = 0;
+    while(insert==false){
+        this->Print();
+        for(int i=0; i<counter; i++){
+            std::cout<<"      ";
+        }
+        std::cout<<"^\n";
+        std::cout<<"Insert here? Enter 1 for yes. 0 for no.\n";
+        int input;
+        std::cin>>input;
+        if(input==1){
+            input=0;
+            std::cout<<"Enter 1 for before, or 2 for after.\n";
+            std::cin>>input;
+            if(input==1){
+                this->InsBefore();
+            }
+            if(input==2){
+                this->InsAfter();
+            }
+        }
+        counter++;
+    }
+    
+}
+
+void SimpleVector::InsAfter(){
+    
+}
+
+void SimpleVector::InsBefore(){
+    
 }

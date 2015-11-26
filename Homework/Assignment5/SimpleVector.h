@@ -22,6 +22,9 @@ public:
     void First();
     void Last();
     void Extract(int);
+    void Traverse();
+    void InsAfter();
+    void InsBefore();
 };
 
 #endif	/* SIMPLEVECTOR_H */

@@ -63,6 +63,7 @@ void linkedlist(){
         cout<<"Enter 5 for last.\n";
         cout<<"Enter 6 for copy.\n";
         cout<<"Enter 7 for extract.\n";
+        cout<<"Enter 8 for insert.\n";
         cout<<"Enter 0 to exit.\n";
         cin>>input;
         if(input==1){
@@ -93,6 +94,9 @@ void linkedlist(){
             cin>>n;
             list.Extract(n);
             list.Print();
+        }
+        if(input==8){
+            list.Traverse();
         }
     }while(input!=0);
 }
