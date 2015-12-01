@@ -48,7 +48,7 @@ void array(){
 }
 
 void linkedlist(){
-    SimpleVector list;
+    SimpleVector<int> list;
     list.Append(3);
     list.Append(5);
     list.Append(10);
@@ -85,7 +85,7 @@ void linkedlist(){
             list.Last();
         }
         if(input==6){
-            SimpleVector copy(list);
+            SimpleVector<int> copy(list);
             copy.Print();
         }
         if(input==7){
@@ -97,6 +97,7 @@ void linkedlist(){
         }
         if(input==8){
             list.Traverse();
+            list.Print();
         }
     }while(input!=0);
 }

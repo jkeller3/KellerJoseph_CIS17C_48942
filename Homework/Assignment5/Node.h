@@ -8,16 +8,17 @@
 #ifndef NODE_H
 #define	NODE_H
 
+template<class T>
 class Node{
-        int x;
-        Node *next;
+        T x;
+        Node<T> *next;
     public:
         Node(){};
         ~Node(){};
-        void setX(int a){x=a;};
-        void setNext(Node* aNext){next=aNext;};
-        int getX(){return x;};
-        Node* getNext(){return next;};
+        void setX(T a){x=a;};
+        void setNext(Node<T> *aNext){next=aNext;};
+        T getX(){return x;};
+        Node<T>* getNext(){return next;};
 };
 
 #endif	/* NODE_H */
