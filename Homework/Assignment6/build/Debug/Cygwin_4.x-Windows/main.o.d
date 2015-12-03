@@ -1,5 +1,5 @@
-build/Debug/Cygwin_4.x-Windows/main.o: main.cpp Node.h Stack.h
+build/Debug/Cygwin_4.x-Windows/main.o: main.cpp Doubly.h Stack.h
 
-Node.h:
+Doubly.h:
 
 Stack.h:

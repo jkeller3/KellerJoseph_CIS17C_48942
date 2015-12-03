@@ -8,10 +8,14 @@
 #include "Stack.h"
 #include <iostream>
 
+Stack::Stack(){
+    head = NULL;
+    listSize=0;
+}
+
 Stack::Stack(const Stack& orig) {
     if(this != &orig){
         head = orig.head;
-        tail = orig.tail;
         listSize = orig.listSize;
     }
 }
@@ -27,46 +31,46 @@ Stack::~Stack() {
 void Stack::Push(int n){
     Node* push = new Node;
     push->x=n;
-    if(listSize==0){
-        push->prev=NULL;
-        head=push;
-    }
-    else{
-        push->prev=tail;
-        tail->next=push;
-    }
-    tail=push;
+    push->next=head;
+    head=push;
     listSize++;
 }
 
 void Stack::Pop(){
-    if(head->next==NULL) return;
     Node* temp = head;
-    head = head->next;
-    delete temp;
-    listSize--;
+    if(head==NULL) return;
+    else{
+        if(temp->next==NULL){
+        head=NULL;
+        delete temp;
+        listSize--;
+    }
+    else{
+        head = head->next;
+        delete temp;
+        listSize--;
+    }
+    }
+    
 }
 
 void Stack::Print(){
-    if(head->next==NULL){
-        std::cout<<"List is empty.\n";
-        return;
-    }
     Node* temp=head;
-    std::cout<<"Head to tail: ";
-    while (temp!=NULL){
+    if(temp==NULL){
+        std::cout<<"List is empty.\n";
+    }
+    else if(temp->next==NULL){
         std::cout<<temp->x;
         std::cout<<" --> ";
-        temp=temp->next;
+        std::cout<<"NULL\n";
     }
-    std::cout<<"NULL\n";
-    Node* temp2=tail;
-    std::cout<<"Tail to head: ";
-    while (temp2!=NULL){
-        std::cout<<temp2->x;
-        std::cout<<" --> ";
-        temp=temp2->next;
+    else{
+        while (temp!=NULL){
+            std::cout<<temp->x;
+            std::cout<<" --> ";
+            temp=temp->next;
+        }
+        std::cout<<"NULL\n";
     }
-    std::cout<<"NULL\n";
 }
 

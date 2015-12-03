@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Circularly.o \
+	${OBJECTDIR}/Doubly.o \
 	${OBJECTDIR}/Stack.o \
 	${OBJECTDIR}/main.o
 
@@ -62,6 +64,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/assignment6.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/assignment6 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Circularly.o: Circularly.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Circularly.o Circularly.cpp
+
+${OBJECTDIR}/Doubly.o: Doubly.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Doubly.o Doubly.cpp
 
 ${OBJECTDIR}/Stack.o: Stack.cpp 
 	${MKDIR} -p ${OBJECTDIR}

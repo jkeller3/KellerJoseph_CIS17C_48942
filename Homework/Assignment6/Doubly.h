@@ -1,29 +1,30 @@
 /* 
- * File:   Stack.h
+ * File:   Doubly.h
  * Author: rcc
  *
- * Created on December 2, 2015, 3:14 PM
+ * Created on December 2, 2015, 6:35 PM
  */
 
-#ifndef STACK_H
-#define	STACK_H
+#ifndef DOUBLY_H
+#define	DOUBLY_H
 #include <stddef.h>
-class Stack {
+
+class Doubly {
 private:
     struct Node{
         int x;
         Node* next;
+        Node* prev;
     };
     Node* head;
+    Node* tail;
     int listSize;
 public:
-    Stack();
-    Stack(const Stack& orig);
-    virtual ~Stack();
+    Doubly();
+    Doubly(const Doubly& orig);
+    virtual ~Doubly();
     void Push(int);
-    void Pop();
     void Print();
 };
 
 #endif	/* STACK_H */
-

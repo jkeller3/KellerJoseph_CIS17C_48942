@@ -9,11 +9,40 @@
 #include <iostream>
 using namespace std;
 
-#include "Node.h"
+#include "Doubly.h"
 #include "Stack.h"
 
-int main(int argc, char** argv) {
+void stackLL();
+void doublyLL();
+void circularlyLL();
+void priorityLL();
+void sortedLL();
 
+int main(int argc, char** argv) {
+    int input;
+    do{
+        cout<<"Enter 1 for a stack linked list.\n";
+        cout<<"Enter 2 for a doubly linked list.\n";
+        cout<<"Enter 3 for a circularly linked list.\n";
+        cout<<"Enter 4 for a priority linked list.\n";
+        cout<<"Enter 5 for a sorted linked list.\n";
+        cout<<"Enter 0 to exit.\n";
+        cin>>input;
+        if(input==1){
+            stackLL();
+        }
+        if(input==2){
+            doublyLL();
+        }
+        if(input==3){
+            
+        }
+
+    }while(input!=0);
+    return 0;
+}
+
+void stackLL(){
     Stack list;
     list.Push(3);
     list.Push(5);
@@ -35,7 +64,25 @@ int main(int argc, char** argv) {
             list.Print();
         }
     }
-    
-    return 0;
 }
 
+void doublyLL(){
+    Doubly list;
+    list.Push(4);
+    list.Push(6);
+    list.Push(2);
+    list.Push(10);
+    list.Print();
+}
+
+void circularlyLL(){
+    
+}
+
+void priorityLL(){
+    
+}
+
+void sortedLL(){
+    
+}
