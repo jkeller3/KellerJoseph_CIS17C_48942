@@ -6,18 +6,19 @@
  */
 
 #include "Circularly.h"
+#include <iostream>
 
 Circularly::Circularly(){
-    head = new Node;
+//    head = new Node;
     tail = new Node;
-    head->next=tail; 
-    tail->prev=head; 
+//    head->next=NULL; 
+    tail->prev=NULL; 
     listSize=0;
 }
 
 Circularly::Circularly(const Circularly& orig) {
     if(this != &orig){
-        head = orig.head;
+//        head = orig.head;
         tail = orig.tail;
         listSize = orig.listSize;
     }
@@ -25,9 +26,9 @@ Circularly::Circularly(const Circularly& orig) {
 
 Circularly::~Circularly() {
     for(int i=0; i<listSize; i++){
-        Node* temp = head->next;
-        delete head;
-        head=temp;
+        Node* temp = tail->next;
+        delete tail;
+        tail=temp;
     }
 }
 
@@ -35,36 +36,44 @@ void Circularly::Push(int n){
     Node* push = new Node;
     push->x=n;
     if(listSize==0){
-        push->prev=NULL;
-        head=push;
+        tail=push;
+        push->next=tail;
     }
     else{
-        push->prev=tail;
+        push->next=tail->next;
         tail->next=push;
     }
-    tail=push;
     listSize++;
 }
 
+void Circularly::Pop(){
+    Node* temp = tail;
+    if(tail==NULL) return;
+    else{
+        if(temp->next==NULL){
+        tail=NULL;
+        delete temp;
+        listSize--;
+        }
+        else{
+            tail = tail->next;
+            delete temp;
+            listSize--;
+        }
+    }
+    
+}
+
 void Circularly::Print(){
-    if(head->next==NULL){
+    if(tail->next==NULL){
         std::cout<<"List is empty.\n";
         return;
     }
-    Node* temp=head;
-    std::cout<<"Head to tail: ";
-    while (temp!=NULL){
+    Node* temp=tail;
+    for(int i=0; i<listSize*2+1; i++){
         std::cout<<temp->x;
         std::cout<<" --> ";
         temp=temp->next;
-    }
-    std::cout<<"NULL\n";
-    Node* temp2=tail;
-    std::cout<<"Tail to head: ";
-    while (temp2!=NULL){
-        std::cout<<temp2->x;
-        std::cout<<" --> ";
-        temp2=temp2->prev;
     }
     std::cout<<"NULL\n";
 }

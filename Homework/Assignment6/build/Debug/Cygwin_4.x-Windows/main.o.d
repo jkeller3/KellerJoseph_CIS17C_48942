@@ -1,5 +1,8 @@
-build/Debug/Cygwin_4.x-Windows/main.o: main.cpp Doubly.h Stack.h
+build/Debug/Cygwin_4.x-Windows/main.o: main.cpp Doubly.h Stack.h \
+ Circularly.h
 
 Doubly.h:
 
 Stack.h:
+
+Circularly.h:

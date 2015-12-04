@@ -11,6 +11,7 @@ using namespace std;
 
 #include "Doubly.h"
 #include "Stack.h"
+#include "Circularly.h"
 
 void stackLL();
 void doublyLL();
@@ -35,7 +36,7 @@ int main(int argc, char** argv) {
             doublyLL();
         }
         if(input==3){
-            
+            circularlyLL();
         }
 
     }while(input!=0);
@@ -73,10 +74,46 @@ void doublyLL(){
     list.Push(2);
     list.Push(10);
     list.Print();
+    int input=1;
+    while(input!=0){
+        cout<<"Enter 1 for push. 2 for pop. Or 0 to exit.\n";
+        cin>>input;
+        if(input==1){
+            int push;
+            cout<<"What number would you like to push?\n";
+            cin>>push;
+            list.Push(push);
+            list.Print();
+        }
+        else if(input==2){
+            list.Pop();
+            list.Print();
+        }
+    }
 }
 
 void circularlyLL(){
-    
+    Circularly list;
+    list.Push(1);
+    list.Push(5);
+    list.Push(3);
+    list.Print();
+    int input=1;
+    while(input!=0){
+        cout<<"Enter 1 for push. 2 for pop. Or 0 to exit.\n";
+        cin>>input;
+        if(input==1){
+            int push;
+            cout<<"What number would you like to push?\n";
+            cin>>push;
+            list.Push(push);
+            list.Print();
+        }
+        else if(input==2){
+            list.Pop();
+            list.Print();
+        }
+    }
 }
 
 void priorityLL(){

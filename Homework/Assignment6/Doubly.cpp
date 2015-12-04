@@ -11,8 +11,8 @@
 Doubly::Doubly(){
     head = new Node;
     tail = new Node;
-    head->next=NULL; 
-    tail->prev=NULL; 
+    head->next=tail; 
+    tail->prev=head; 
     listSize=0;
 }
 
@@ -44,8 +44,33 @@ void Doubly::Push(int n){
         tail->next=push;
     }
     tail=push;
+    tail->next=NULL;
     listSize++;
 }
+
+void Doubly::Pop(){
+    Node* temp = head;
+    Node* temp2 = tail;
+    if(head==NULL) return;
+    else{
+        if(temp->next==NULL){
+            head=NULL;
+            delete temp;
+            listSize--;
+        }
+        else{
+            head = head->next;
+            while(temp2->prev!=NULL){
+                temp2=temp2->prev;
+            }
+            temp2=head;
+            temp2->prev=NULL;
+            delete temp;
+            listSize--;
+        }
+    }
+}
+
 
 void Doubly::Print(){
     if(head->next==NULL){

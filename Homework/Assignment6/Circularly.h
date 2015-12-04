@@ -24,6 +24,7 @@ public:
     Circularly(const Circularly& orig);
     virtual ~Circularly();
     void Push(int);
+    void Pop();
     void Print();
 };
 

@@ -24,6 +24,7 @@ public:
     Doubly(const Doubly& orig);
     virtual ~Doubly();
     void Push(int);
+    void Pop();
     void Print();
 };
 
