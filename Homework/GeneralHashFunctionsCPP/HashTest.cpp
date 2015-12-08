@@ -26,7 +26,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
    string key = "abcdefghijklmnopqrstuvwxyz1234567890";
-
+   set<int> s;
    cout << "General Purpose Hash Function Algorithms Test" <<endl;
    cout << "By Arash Partow - 2002        " <<endl;
    cout << "Key:     " <<key<<endl;
@@ -42,5 +42,5 @@ int main(int argc, char* argv[])
    cout << "10. BP-Hash Function Value:   " <<setw(15)<< BPHash(key)   <<endl;
    cout << "11. AP-Hash Function Value:   " <<setw(15)<< APHash(key)   <<endl;
 
-   return true;
+   return 0;
 }

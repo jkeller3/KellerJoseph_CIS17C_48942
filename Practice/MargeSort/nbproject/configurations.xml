@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>GeneralHashFunctions.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,8 +12,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>GeneralHashFunctions.cpp</itemPath>
-      <itemPath>HashTest.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -25,10 +23,10 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>GeneralHashFunctionsCPP-Makefile.mk</itemPath>
+      <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <projectmakefile>GeneralHashFunctionsCPP-Makefile.mk</projectmakefile>
+  <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
@@ -38,11 +36,7 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="GeneralHashFunctions.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="GeneralHashFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="HashTest.cpp" ex="false" tool="1" flavor2="0">
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -65,11 +59,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="GeneralHashFunctions.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="GeneralHashFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="HashTest.cpp" ex="false" tool="1" flavor2="0">
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
     cin>>input;
     if(input==1) bubbleSort(array,size);
     else if(input==2) selectionSort(array,size);
-    else if(input==3) mergeSort(array,size);
+    else if(input==3) array=mergeSort(array,size);
     else if(input==4) quickSort(array, 0, size-1);
     else if(input==5) heapSort(array);
     else cout<<"Invalid input.\n";
@@ -90,57 +90,47 @@ int* mergeSort(int* array,int size){
     if(size==1){
         return array;
     }
-    int i=0, s1, s2;
-    int* array1=new int[size/2];
-    s1 = size/2;
-    int* array2;
-    if(size%2==1){
-        array2=new int[size/2+1]; 
-        s2=size/2+1;
-    }
-    else{ 
-        array2=new int[size/2]; 
-        s2=size/2;
-    }
+    int i=0;
+    int* left=new int[size/2];
+    int leftSize = size/2;
+    int* right=new int[size-leftSize]; 
+    int rightSize=size-leftSize;
     while(i<size/2){
-        array1[i]=array[i];
+        left[i]=array[i];
         i++;
     }
     int j=0;
     while(i<size){
-        array2[j]=array[i];
+        right[j]=array[i];
         i++, j++;
     }
-    array1=mergeSort(array1,s1);
-    array2=mergeSort(array2,s2);
-    return merge(array1,array2,s1,s2);
+    left=mergeSort(left,leftSize);
+    right=mergeSort(right, rightSize);
+    return merge(left,right,leftSize,rightSize);
 }
 
-int* merge(int* a1, int* a2, int s1, int s2){
-    int* a3 = new int [s1+s2-1];
+int* merge(int* left, int* right, int leftSize, int rightSize){
+    int* a3 = new int [leftSize+rightSize];
     int i=0, j=0;
-    while(a1[s1-1]!=0||a2[s2-1]!=0){
-        if(a1[i]>a2[j]){
-            a3[i+j]=a2[j];
-            a2[j]=0;
+    while(i<leftSize&&j<rightSize){
+        if(left[i]>right[j]){
+            a3[i+j]=right[j];
             j++;
         }
         else{
-            a3[i+j]=a1[i];
-            a1[i]=0;
+            a3[i+j]=left[i];
             i++;
         }
     }
-    while(a1[s1-1]!=0){
-        a3[i+j]=a1[i];
-        a1[i]=0;
+    while(i<leftSize){
+        a3[i+j]=left[i];
         i++;
     }
-    while(a2[s2-1]!=0){
-        a3[i+j]=a2[j];
-        a2[j]=0;
+    while(j<rightSize){
+        a3[i+j]=right[j];
         j++;
     }
+    delete left, right;
     return a3;
 }
 
@@ -168,7 +158,6 @@ void quickSort(int* array, int top, int bottom){
         }
     }
 }
-
 void heapSort(int*){
     
 }
