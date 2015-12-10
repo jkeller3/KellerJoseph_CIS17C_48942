@@ -34,8 +34,17 @@ void LinkedList::Push(int n){
     Node* push = new Node();
     push->x=n;
     push->next=NULL;
-    if(head!=NULL){
-        Node *temp = head;
+    Node *temp = head;
+    if(head->next==NULL){
+        if(push->x>temp->x){
+            head=push;
+            push->next=temp;
+        }
+        else{
+            temp->next=push;
+        }
+    }
+    else if(head!=NULL){
         Node *prev = head->next;
         while(push->x>temp->x&&prev!=NULL){
             temp = temp->next;
