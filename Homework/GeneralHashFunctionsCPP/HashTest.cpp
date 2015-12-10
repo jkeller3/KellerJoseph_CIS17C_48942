@@ -26,7 +26,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
    string key = "abcdefghijklmnopqrstuvwxyz1234567890";
-   set<int> s;
+   string key2 = "1234567890";
    cout << "General Purpose Hash Function Algorithms Test" <<endl;
    cout << "By Arash Partow - 2002        " <<endl;
    cout << "Key:     " <<key<<endl;
@@ -41,6 +41,19 @@ int main(int argc, char* argv[])
    cout << " 9. FNV-Hash Function Value:  " <<setw(15)<< FNVHash(key)  <<endl;
    cout << "10. BP-Hash Function Value:   " <<setw(15)<< BPHash(key)   <<endl;
    cout << "11. AP-Hash Function Value:   " <<setw(15)<< APHash(key)   <<endl;
+   cout << "endl";
+   cout << "Key:     " <<key<<endl;
+   cout << " 1. RS-Hash Function Value:   " <<setw(15)<< RSHash(key2)   <<endl;
+   cout << " 2. JS-Hash Function Value:   " <<setw(15)<< JSHash(key2)   <<endl;
+   cout << " 3. PJW-Hash Function Value:  " <<setw(15)<< PJWHash(key2)  <<endl;
+   cout << " 4. ELF-Hash Function Value:  " <<setw(15)<< ELFHash(key2)  <<endl;
+   cout << " 5. BKDR-Hash Function Value: " <<setw(15)<< BKDRHash(key2) <<endl;
+   cout << " 6. SDBM-Hash Function Value: " <<setw(15)<< SDBMHash(key2) <<endl;
+   cout << " 7. DJB-Hash Function Value:  " <<setw(15)<< DJBHash(key2)  <<endl;
+   cout << " 8. DEK-Hash Function Value:  " <<setw(15)<< DEKHash(key2)  <<endl;
+   cout << " 9. FNV-Hash Function Value:  " <<setw(15)<< FNVHash(key2)  <<endl;
+   cout << "10. BP-Hash Function Value:   " <<setw(15)<< BPHash(key2)   <<endl;
+   cout << "11. AP-Hash Function Value:   " <<setw(15)<< APHash(key2)   <<endl;
 
    return 0;
 }
