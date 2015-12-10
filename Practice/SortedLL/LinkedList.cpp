@@ -119,12 +119,14 @@ int LinkedList::findMaxRepeat(){
     for (int i=1; i<=listSize; i++){
         if(temp == number){
             repeat++;
+            temp=temp->next;
         } else{
             if(repeat>maxRepeat){
                 maxRepeat=repeat;
             }
+            temp=temp->next;
             repeat = 1;
-            number = num[i];
+            number = temp;
         }
     }
     return maxRepeat;
