@@ -15,13 +15,19 @@ private:
         Node* next;
     };
     Node* head;
+    Node* mode;
     int listSize;
+    int modeCount;
 public:
-    LinkedList(){head=NULL;};
+    LinkedList();
     LinkedList(const LinkedList& orig);
     virtual ~LinkedList();
-    int* TopNums(int);
+    int* TopNums(int&);
     void Push(int);
+    void FindMode();
+    int FindMaxRepeat();
+//    int FindModeCount(int);
+    void DisplayMode();
     void Print();
 };
 

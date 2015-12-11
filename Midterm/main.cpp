@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "LinkedList.h"
+#include "SelfOrganizingList.h"
 
 void menu();
 int getN();
@@ -144,7 +145,16 @@ void problem6(){
 }
 
 void problem7(){
-    
+    LinkedList list;
+    list.Push(1);
+    list.Push(3);
+    list.Push(5);
+    list.Push(7);
+    list.Push(9);
+    list.Push(7);
+    list.Print();
+    cout<<"Which number would you like to move to the front of the list?\n";
+    int num = getN();
 }
 
 void def(int inN)
