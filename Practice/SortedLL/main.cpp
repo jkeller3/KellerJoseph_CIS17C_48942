@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
         cout<<top[i]<<" ";
     }
     cout<<"\n";
+    list.FindMode();
     delete top;
     
     return 0;

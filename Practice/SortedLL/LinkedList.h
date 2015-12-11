@@ -17,16 +17,17 @@ private:
     Node* head;
     Node* mode;
     int listSize;
+    int modeCount;
 public:
     LinkedList();
     LinkedList(const LinkedList& orig);
     virtual ~LinkedList();
     int* TopNums(int&);
     void Push(int);
-    void findMode();
-    int findMaxRepeat();
-    int findModeCount();
-    void displayMode();
+    void FindMode();
+    int FindMaxRepeat();
+//    int FindModeCount(int);
+    void DisplayMode();
     void Print();
 };
 

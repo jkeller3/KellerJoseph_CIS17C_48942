@@ -11,11 +11,14 @@ LinkedList::LinkedList(){
     head=NULL;
     mode=NULL;
     listSize=0;
+    modeCount=0;
 }
 
 LinkedList::LinkedList(const LinkedList& orig) {
     this->head=orig.head;
     this->listSize=orig.listSize;
+    this->mode=orig.mode;
+    this->modeCount=orig.modeCount;
 }
 
 LinkedList::~LinkedList() {
@@ -23,6 +26,11 @@ LinkedList::~LinkedList() {
         Node* temp = head->next;
         delete head;
         head=temp;
+    }
+    for(int i=0; i<modeCount; i++){
+        Node* temp = mode->next;
+        delete mode;
+        mode=temp;
     }
 }
 
@@ -84,80 +92,98 @@ void LinkedList::Push(int n){
     listSize++;
 }
 
-void LinkedList::findMode(){
-    int maxRepeat = findMaxRepeat(); 
+void LinkedList::FindMode(){
+    Node* temp = head;
+    int maxRepeat = FindMaxRepeat();
     if(maxRepeat==1){
-        displayMode(0,0);
+        DisplayMode();
         return;
     }
-    int modeCount = findModeCount();
-    int mode[modeCount-1];
-    modeCount=0;
+//    int modeCount = FindModeCount(maxRepeat);
     int repeat=1;
-    int number=num[0];
-    for(int i=1; i<=size; i++){
-        if(num[i] == number){
+    Node* prev = head;
+    temp=temp->next;
+    while(prev!=NULL){
+        if(temp->x == prev->x){
             repeat++;
         }
         else{
             if(repeat == maxRepeat){
-                mode[modeCount]=number;
+                Node* add = new Node();
+                add->x=prev->x;
+                add->next=mode;
+                mode=add;
                 modeCount++;
             }
             repeat = 1;
-            number = num[i];
+        }
+        prev=prev->next;
+        if(temp!=NULL){
+            temp=temp->next;
         }
     }
-    displayMode(mode, modeCount);    
+    DisplayMode();
 }
 
-int LinkedList::findMaxRepeat(){
+int LinkedList::FindMaxRepeat(){
     Node* temp = head;
-    int number = temp;
+    Node* prev = head;
     int repeat = 1;
     int maxRepeat = 1;
-    for (int i=1; i<=listSize; i++){
-        if(temp == number){
+    temp=temp->next;
+    while(prev!=NULL){
+        if(temp->x == prev->x){
             repeat++;
-            temp=temp->next;
-        } else{
+        }
+        else{
             if(repeat>maxRepeat){
                 maxRepeat=repeat;
             }
-            temp=temp->next;
             repeat = 1;
-            number = temp;
+        }
+        prev=prev->next;
+        if(temp!=NULL){
+            temp=temp->next;
         }
     }
     return maxRepeat;
 }
 
-int LinkedList::findModeCount(){
-    int modeCount = 0;
-    int repeat = 1;
-    int number = num[0];
-    for (int i=1; i<=size; i++){
-        if(num[i] == number){
-            repeat++;
-        } else{
-            if(repeat == maxRepeat){
-                modeCount++;
-            }
-            repeat = 1;
-            number = num[i];
-        }
-    }
-    return modeCount;
-}
+//int LinkedList::FindModeCount(int maxRepeat){
+//    Node* temp = head;
+//    int modeCount = 0;
+//    int repeat = 1;
+//    int number = temp->x;
+//    temp=temp->next;
+//    for (int i=1; i<listSize; i++){
+//        if(temp->x == number){
+//            repeat++;
+//        }
+//        else{
+//            if(repeat == maxRepeat){
+//                modeCount++;
+//            }
+//            repeat = 1;
+//            number = temp->x;
+//        }
+//        temp=temp->next;
+//    }
+//    return modeCount;
+//}
 
-void LinkedList::displayMode(){
-    if(size==0){
+void LinkedList::DisplayMode(){
+    if(modeCount==0){
         printf("There is no mode.\n");
-    } else if(size==1){
-        printf("The mode is: %d.\n",array[0]);
-    } else{
+    }
+    else if(modeCount==1){
+        printf("The mode is: %d.\n",mode->x);
+    }
+    else{
         printf("The modes are: ");
-        outputArray(array, size);
+        while(mode!=NULL){
+            printf("%d ",mode->x);
+            mode=mode->next;
+        }
     }
 }
 
@@ -169,4 +195,3 @@ void LinkedList::Print(){
     }while (temp!=NULL );
     printf("NULL\n");
 }
-
