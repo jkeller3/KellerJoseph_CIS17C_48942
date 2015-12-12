@@ -8,7 +8,7 @@
 #ifndef LINKEDLIST_H
 #define	LINKEDLIST_H
 
-class LinkedList {
+class LinkedList: public SelfOrganizingList {
 private:
     struct Node{
         int x;
@@ -28,6 +28,7 @@ public:
     int FindMaxRepeat();
 //    int FindModeCount(int);
     void DisplayMode();
+    void NumExist(n);
     void Print();
 };
 

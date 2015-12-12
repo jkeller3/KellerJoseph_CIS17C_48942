@@ -171,6 +171,17 @@ int LinkedList::FindMaxRepeat(){
 //    return modeCount;
 //}
 
+void LinkedList::NumExist(int n){
+    bool numExist=MoveFront(n);
+    if(numExist==false){
+        printf("The number was not in the list.\n");
+    }
+    if(numExist==true){
+        printf("New list: ");
+        Print();
+    }
+}
+
 void LinkedList::DisplayMode(){
     if(modeCount==0){
         printf("There is no mode.\n");

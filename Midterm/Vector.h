@@ -5,19 +5,23 @@
  */
 
 /* 
- * File:   SelfOrganizingList.h
+ * File:   Vector.h
  * Author: joey
  *
- * Created on December 11, 2015, 12:24 AM
+ * Created on December 11, 2015, 12:42 PM
  */
 
-#ifndef SELFORGANIZINGLIST_H
-#define SELFORGANIZINGLIST_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
-class SelfOrganizingList{
+class Vector {
 public:
-    bool MoveFront();
+    Vector();
+    Vector(const Vector& orig);
+    virtual ~Vector();
+private:
+
 };
 
-#endif /* SELFORGANIZINGLIST_H */
+#endif /* VECTOR_H */
 

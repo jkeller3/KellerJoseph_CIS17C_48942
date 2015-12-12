@@ -153,8 +153,14 @@ void problem7(){
     list.Push(9);
     list.Push(7);
     list.Print();
-    cout<<"Which number would you like to move to the front of the list?\n";
-    int num = getN();
+    int num=1;
+    do{
+        cout<<"Which number would you like to move to the front of the list?";
+        cout<<" Enter 0 to exit.\n";
+        num = getN();
+        list.NumExist(num);
+    }while(num!=0);
+    
 }
 
 void def(int inN)
