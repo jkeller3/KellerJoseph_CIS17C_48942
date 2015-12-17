@@ -19,11 +19,12 @@ public:
     Graph(const Graph& orig);
     virtual ~Graph(){};
     AdjListNode* NewAdjListNode(int,int);
-    void AddEdge(int,int);
+    void AddEdge(int,int,int);
     int Traverse(int,int);
+    void MinimumSpanningTree(int,int);
     void Print(int);
+    void ShortestDistance(int);
     void PrintGraph();
 };
 
 #endif	/* GRAPH_H */
-
