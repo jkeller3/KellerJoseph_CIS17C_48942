@@ -5,6 +5,7 @@
  * Created on December 11, 2015, 12:24 AM
  */
 #include <cstdlib>
+using namespace std;
 #include "SelfOrganizingList.h"
 #include "LinkedList.h"
 

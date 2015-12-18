@@ -72,7 +72,7 @@ void Graph::MinimumSpanningTree(int start, int end){
         total2+=pCrawl->dist;
     }
     trav=start;
-    if(total1>total2){
+    if(total1<total2){
         printf("The shortest path is: ");
         pCrawl = array[trav].head;
         while(trav!=end){
@@ -85,7 +85,7 @@ void Graph::MinimumSpanningTree(int start, int end){
             }
             pCrawl=array[trav].head;
         }
-    } else if(total2>total1){
+    } else if(total2<total1){
         printf("The shortest path is: ");
         pCrawl = array[trav].head;
         while(trav!=end){

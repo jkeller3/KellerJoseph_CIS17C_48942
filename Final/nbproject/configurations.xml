@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>AdjList.h</itemPath>
+      <itemPath>AdjListNode.h</itemPath>
       <itemPath>BinaryTrees.h</itemPath>
       <itemPath>Hashing.h</itemPath>
       <itemPath>Queues.h</itemPath>
@@ -48,6 +50,10 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="AdjList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AdjListNode.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="BinaryTrees.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BinaryTrees.h" ex="false" tool="3" flavor2="0">
@@ -95,6 +101,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="AdjList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AdjListNode.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="BinaryTrees.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BinaryTrees.h" ex="false" tool="3" flavor2="0">

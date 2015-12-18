@@ -15,6 +15,8 @@ using namespace std;
 #include "Sorting.h"
 #include "BinaryTrees.h"
 #include "WeightedGraphs.h"
+#include "AdjListNode.h"
+#include "AdjList.h"
 
 void menu();
 int getN();
@@ -130,19 +132,30 @@ void problem5(){
 
 void problem6(){
     WeightedGraphs graph(7);
-    graph.addEdge("SFO","BOS",2704);
-    graph.addEdge("SFO","ORD",1846);
-    graph.addEdge("ORD","BOS",867);
-    graph.addEdge("ORD","JFK",740);
-    graph.addEdge("JFK","BOS",187);
-    graph.addEdge("SFO","DFW",1464);
-    graph.addEdge("DFW","ORD",802);
-    graph.addEdge("DFW","MIA",1121);
-    graph.addEdge("MIA","JFK",1090);
-    graph.addEdge("MIA","BOS",1258);
-    graph.addEdge("SFO","LAX",337);
-    graph.addEdge("LAX","DFW",1235);
-    graph.addEdge("LAX","MIA",2342);
+    graph.AddEdge("SFO","BOS",2704);
+    graph.AddEdge("SFO","ORD",1846);
+    graph.AddEdge("ORD","BOS",867);
+    graph.AddEdge("ORD","JFK",740);
+    graph.AddEdge("JFK","BOS",187);
+    graph.AddEdge("SFO","DFW",1464);
+    graph.AddEdge("DFW","ORD",802);
+    graph.AddEdge("DFW","MIA",1121);
+    graph.AddEdge("MIA","JFK",1090);
+    graph.AddEdge("MIA","BOS",1258);
+    graph.AddEdge("SFO","LAX",337);
+    graph.AddEdge("LAX","DFW",1235);
+    graph.AddEdge("LAX","MIA",2342);
+    graph.PrintGraph();
+    
+    int input;
+    int curr = 0;
+    do{
+        graph.Print(curr);
+        cout<<"Which point would you like to move to?\n";
+        cout<<"Enter -1 to exit.\n";
+        cin>>input;
+        curr=graph.Traverse(curr,input);
+    }while(input!=-1);
 }
 
 void def(int inN){
