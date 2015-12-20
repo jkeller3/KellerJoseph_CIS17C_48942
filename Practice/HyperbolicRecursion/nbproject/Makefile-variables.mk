@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=sortedll
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/sortedll
+CND_ARTIFACT_NAME_Debug=hyperbolicrecursion
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/hyperbolicrecursion
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=sortedll.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/sortedll.tar
+CND_PACKAGE_NAME_Debug=hyperbolicrecursion.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/hyperbolicrecursion.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=sortedll
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/sortedll
+CND_ARTIFACT_NAME_Release=hyperbolicrecursion
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/hyperbolicrecursion
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=sortedll.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/sortedll.tar
+CND_PACKAGE_NAME_Release=hyperbolicrecursion.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/hyperbolicrecursion.tar
 #
 # include compiler specific variables
 #
