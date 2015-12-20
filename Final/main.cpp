@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
                 problem5();
                 break;
             case 6:
-                problem6();
+//                problem6();
                 break;
             default:
                 def(inN);
@@ -128,7 +128,7 @@ void problem4(){
                 break;
             case 5:
                 sort.FillList();
-                sort.HeapSort();
+                sort.Build();
                 sort.PrintTop();
                 break;
             default:
@@ -142,33 +142,33 @@ void problem5(){
     BinaryTrees tree;
 }
 
-//void problem6(){
-//    WeightedGraphs graph(7);
-//    graph.AddEdge("SFO","BOS",2704);
-//    graph.AddEdge("SFO","ORD",1846);
-//    graph.AddEdge("ORD","BOS",867);
-//    graph.AddEdge("ORD","JFK",740);
-//    graph.AddEdge("JFK","BOS",187);
-//    graph.AddEdge("SFO","DFW",1464);
-//    graph.AddEdge("DFW","ORD",802);
-//    graph.AddEdge("DFW","MIA",1121);
-//    graph.AddEdge("MIA","JFK",1090);
-//    graph.AddEdge("MIA","BOS",1258);
-//    graph.AddEdge("SFO","LAX",337);
-//    graph.AddEdge("LAX","DFW",1235);
-//    graph.AddEdge("LAX","MIA",2342);
-//    graph.PrintGraph();
-//    
-//    int input;
-//    int curr = 0;
-//    do{
-//        graph.Print(curr);
-//        cout<<"Which point would you like to move to?\n";
-//        cout<<"Enter -1 to exit.\n";
-//        cin>>input;
-//        curr=graph.Traverse(curr,input);
-//    }while(input!=-1);
-//}
+void problem6(){
+    WeightedGraphs graph(7);
+    graph.AddEdge("SFO","BOS",2704);
+    graph.AddEdge("SFO","ORD",1846);
+    graph.AddEdge("ORD","BOS",867);
+    graph.AddEdge("ORD","JFK",740);
+    graph.AddEdge("JFK","BOS",187);
+    graph.AddEdge("SFO","DFW",1464);
+    graph.AddEdge("DFW","ORD",802);
+    graph.AddEdge("DFW","MIA",1121);
+    graph.AddEdge("MIA","JFK",1090);
+    graph.AddEdge("MIA","BOS",1258);
+    graph.AddEdge("SFO","LAX",337);
+    graph.AddEdge("LAX","DFW",1235);
+    graph.AddEdge("LAX","MIA",2342);
+    graph.PrintGraph();
+    
+    int input;
+    int curr = 0;
+    do{
+        graph.Print(curr);
+        cout<<"Which point would you like to move to?\n";
+        cout<<"Enter -1 to exit.\n";
+        cin>>input;
+        curr=graph.Traverse(curr,input);
+    }while(input!=-1);
+}
 
 void def(int inN){
     cout<<"You entered "<<inN<<" to exit the program"<<endl;

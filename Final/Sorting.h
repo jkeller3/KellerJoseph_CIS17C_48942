@@ -27,7 +27,9 @@ public:
     unsigned short int* MergeSort(unsigned short int*,int);
     unsigned short int* Merge(unsigned short int*,unsigned short int*,int,int);
     void QuickSort(int,int);
-    void HeapSort();
+    void HeapSort(unsigned short int*,int);
+    void Build();
+    void Heapify(unsigned short int*,int,int);
     void Print();
     void PrintTop();
 };

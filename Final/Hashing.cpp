@@ -18,10 +18,10 @@ Hashing::Hashing() {
     for(int i=0; i<tableSize; i++){
         HashTable[i] = new Item;
         HashTable[i]->name = new char [3];
-        strcpy(HashTable[i]->name,"---");
+        HashTable[i]->name[0] = '0';
         HashTable[i]->intName = 0;
         HashTable[i]->next = NULL;
-    }
+        }
     collision = 0;
 }
 
@@ -37,16 +37,22 @@ void Hashing::Hash(char* key){
     int nKey3 = GetPhoneNum(key[2]);
     int firstKey = nKey1+nKey2+nKey3;
     int newKey=GetHash(firstKey);
-    if(HashTable[newKey]->name[0]='-'){
-        HashTable[newKey]->name = key;
+    if(HashTable[newKey]->name[0]=='0'){
+        for(int i=0; i<3; i++){
+            printf("5\n");
+            printf("%c\n",key[i]);
+            HashTable[newKey]->name[i] = key[i];
+            printf("%c\n",HashTable[newKey]->name[i]);
+        }
         HashTable[newKey]->intName = firstKey;
     } else if(HashTable[newKey]->next!=NULL){
         Item* temp = HashTable[newKey];
-        while(temp!=NULL){
+        while(temp->next!=NULL){
             temp = temp->next;
         }
         Item* newNode = new Item;
-        newNode->name = key;
+        for(int i=0; i>3; i++)
+            newNode->name[i] = key[i];
         newNode->intName = firstKey;
         newNode->next = NULL;
         temp->next = newNode;
@@ -54,7 +60,8 @@ void Hashing::Hash(char* key){
         HashTable[newKey]->coll++;
     } else{
         Item* newNode = new Item;
-        newNode->name = key;
+        for(int i=0; i>3; i++)
+            newNode->name[i] = key[i];
         newNode->intName = firstKey;
         newNode->next = NULL;
         HashTable[newKey]->next = newNode;
@@ -64,23 +71,33 @@ void Hashing::Hash(char* key){
 }
 
 int Hashing::GetHash(int key){
+    int newKey;
     if(key<300){
-        return key%88;
+        newKey=key%88;
     } else if(key<400){
-        return (key%88)+88;
+        newKey=key%88;
+        newKey+=88;
     } else if(key<500){
-        return (key%88)+176;
+        newKey=key%88;
+        newKey+=176;
     } else if(key<600){
-        return (key%88)+264;
+        newKey=key%88;
+        newKey+=264;
     } else if(key<700){
-        return (key%88)+352;
+        newKey=key%88;
+        newKey+=352;
     } else if(key<800){
-        return ((key%88)+440)%512;
+        newKey=key%88;
+        newKey+=440;
     } else if(key<900){
-        return ((key%88)+528)%512;
+        newKey=key%88;
+        newKey+=528;
     } else{
-        return ((key%88)+616)%512;
+        newKey=key%88;
+        newKey+=616;
     }
+    newKey%=512;
+    return newKey;
 }
 
 int Hashing::GetPhoneNum(char key){
@@ -106,8 +123,18 @@ int Hashing::GetPhoneNum(char key){
 void Hashing::Print(){
     for(int i=0; i<tableSize; i++){
         printf("HashTable[%d]: \n",i);
-        printf("Name: %s\n",HashTable[i]->name);
-        printf("IntNum: %d\n",HashTable[i]->intName);
-        printf("Collisions: %d\n",HashTable[i]->coll);
+        if(HashTable[i]->name[0]=='0'){
+            printf("is empty\n");
+        }
+        else{
+            printf("Name: ");
+            for(int j=0; j<3; j++){
+                printf("%c",HashTable[i]->name[j]);
+            }
+            printf("IntNum: %d\n",HashTable[i]->intName);
+            printf("Collisions: %d\n",HashTable[i]->coll);
+        }
+        
     }
+    printf("Total Collisions: %d\n",collision);
 }

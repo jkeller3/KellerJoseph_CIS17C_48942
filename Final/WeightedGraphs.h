@@ -20,6 +20,7 @@ public:
     WeightedGraphs(int);
     WeightedGraphs(const WeightedGraphs& orig);
     virtual ~WeightedGraphs();
+    int GetIndex(string);
     AdjListNode* NewAdjListNode(string,int);
     void AddEdge(string,string,int);
     int Traverse(int,int);

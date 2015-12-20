@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "Sorting.h"
 #include "BinaryTrees.h"
+#include "AdjList.h"
 
 Sorting::Sorting() {
     size = 100000;
@@ -99,10 +100,6 @@ void Sorting::MergeSort(){
     list=Merge(left,right,leftSize,rightSize);
 }
 
-void Sorting::HeapSort(){
-    
-}
-
 unsigned short int* Sorting::MergeSort(unsigned short int* array, int s){
     if(s==1){
         return array;
@@ -150,6 +147,46 @@ unsigned short int* Sorting::Merge(unsigned short int* left,
     }
     delete left, right;
     return a3;
+}
+
+void Sorting::HeapSort(unsigned short int* a, int n){
+    int i, temp;
+    for (i = n; i >= 2; i--){
+        temp = a[i];
+        a[i] = a[1];
+        a[1] = temp;
+        Heapify(a, 1, i - 1);
+    }
+}
+
+void Sorting::Build(){
+    unsigned short int* a = list;
+    int n = size;
+    for(int i = n/2; i >= 1; i--){
+        Heapify(a, i, n);
+    }
+    list=a;
+}
+
+void Sorting::Heapify(unsigned short int* a, int i, int n){
+    int j, temp;
+    temp = a[i];
+    j = 2*i;
+    while (j <= n){
+        if(j < n && a[j+1] < a[j]){
+            j++;
+        }
+        if(temp < a[j]){
+            break;
+        }
+        else if(temp >= a[j]){
+            a[j/2] = a[j];
+            j=2*j;
+        }
+    }
+    a[j/2] = temp;
+    printf("%d\n",j);
+    return;
 }
 
 void Sorting::QuickSort(int top, int bottom){
