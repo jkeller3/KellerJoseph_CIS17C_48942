@@ -21,10 +21,11 @@ public:
     WeightedGraphs(const WeightedGraphs& orig);
     virtual ~WeightedGraphs();
     int GetIndex(string);
-    AdjListNode* NewAdjListNode(string,int);
+    AdjListNode* NewAdjListNode(string,string,int,int);
     void AddEdge(string,string,int);
     int Traverse(int,int);
-    void MinimumSpanningTree(int,int);
+    void SortEdges();
+    void MinimumSpanningTree(int);
     void Print(int);
     void ShortestDistance(int);
     void PrintGraph();

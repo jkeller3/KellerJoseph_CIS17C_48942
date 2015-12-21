@@ -11,8 +11,9 @@
 #include <string>
 using namespace std;
 struct AdjListNode{
-    int index;
+    string name;
     string dest;
+    int destIndex;
     int dist;
     struct AdjListNode* next;
 };

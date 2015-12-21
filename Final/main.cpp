@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
                 problem5();
                 break;
             case 6:
-//                problem6();
+                problem6();
                 break;
             default:
                 def(inN);
@@ -157,6 +157,7 @@ void problem6(){
     graph.AddEdge("SFO","LAX",337);
     graph.AddEdge("LAX","DFW",1235);
     graph.AddEdge("LAX","MIA",2342);
+    graph.SortEdges();
     graph.PrintGraph();
     
     int input;
@@ -168,6 +169,11 @@ void problem6(){
         cin>>input;
         curr=graph.Traverse(curr,input);
     }while(input!=-1);
+//    cout<<"Between which two points would you like to find the minimum distance?\n";
+//    int start,end;
+//    cin>>start;
+//    cin>>end;
+//    graph.MinimumSpanningTree(start,end);
 }
 
 void def(int inN){

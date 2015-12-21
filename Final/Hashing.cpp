@@ -131,10 +131,10 @@ void Hashing::Print(){
             for(int j=0; j<3; j++){
                 printf("%c",HashTable[i]->name[j]);
             }
-            printf("IntNum: %d\n",HashTable[i]->intName);
+            printf("\nIntNum: %d\n",HashTable[i]->intName);
             printf("Collisions: %d\n",HashTable[i]->coll);
         }
-        
     }
     printf("Total Collisions: %d\n",collision);
+    printf("Average Collisions: %f\n",(float)collision/tableSize);
 }
